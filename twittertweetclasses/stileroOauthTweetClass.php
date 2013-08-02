@@ -3,7 +3,7 @@
 /**
  * A Class for sending Tweet through the Twitter OAuth protocol
  *
- * @version 1.0
+ * @version 1.1
  * @author danieleliasson Stilero AB - http://www.stilero.com
  * @copyright 2011-dec-22 Stilero AB
  * @license GPLv2
