@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="k2" method="upgrade">
+    <name>TwitterTweet K2 Plugin</name>
+    <author>Daniel Eliasson (www.stilero.com)</author>
+    <creationDate>December 31st, 2011</creationDate>
+    <copyright>Copyright (c) 2011 Stilero AB. All rights reserved.</copyright>
+    <authorEmail>joomla@stilero.com</authorEmail>
+    <authorUrl>www.stilero.com</authorUrl>
+    <version>2.3</version>
+    <license>GPLv2</license>
+    <description>This plugin automatically Tweets your articles to Twitter. If you like this plugin, show your love and write a review at http://extensions.joomla.org</description>
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">twittertweetsql/plg_k2_twittertweet_install.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">twittertweetsql/plg_k2_twittertweet_uninstall.sql</file>
+        </sql>
+    </uninstall>	
+    <files>
+        <filename>index.html</filename>
+        <filename plugin="twittertweet">twittertweet.php</filename>
+        <folder>twittertweetclasses</folder>
+        <folder>twittertweetsql</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB.plg_k2_twittertweet.ini</language>
+        <language tag="sv-SE">sv-SE.plg_k2_twittertweet.ini</language>
+    </languages>
+    <!-- Standard plugin parameters for Joomla! 1.5 -->
+    <params>
+        <param name="section_id" type="text"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_PARAMSECTID" description="PLG_CONTENT_K2_TWITTERTWEET_PARAMSECTIDDESC"/>
+        <param name="username" type="text"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_USERNAME" description="PLG_CONTENT_K2_TWITTERTWEET_USERNAME_DESC"/>
+        <param name="password" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_PASSWORD" description="PLG_CONTENT_K2_TWITTERTWEET_PASSWORD_DESC"/>
+        <param name="metahash" type="radio" default="1" label="PLG_CONTENT_K2_TWITTERTWEET_METAHASH" description="PLG_CONTENT_K2_TWITTERTWEET_METAHASH_DESC">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </param>	
+        <param name="default_hash" type="text"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_DEFAULTHASH" description="PLG_CONTENT_K2_TWITTERTWEET_DEFAULTHASH_DESC"/>
+        <param name="items_newer_than" type="calendar" label="PLG_CONTENT_K2_TWITTERTWEET_POST_ITEMSNEWER" description="PLG_CONTENT_K2_TWITTERTWEET_POST_ITEMSNEWER_DESC" format="%Y-%m-%d" />
+        <param name="post_on_save" type="radio" default="0" label="PLG_CONTENT_K2_TWITTERTWEET_POSTONSAVE" description="PLG_CONTENT_K2_TWITTERTWEET_POSTONSAVE_DESC">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </param>
+    </params>
+    <params group="advanced" label="PLG_CONTENT_K2_TWITTERTWEET_ADVSETTINGS">
+        <param name="delay" type="text"  default="15" label="PLG_CONTENT_K2_TWITTERTWEET_DELAY" description="PLG_CONTENT_K2_TWITTERTWEET_DELAY_DESC"/>
+        <param name="pingmessages" type="radio" default="1" label="PLG_CONTENT_K2_TWITTERTWEET_PARAMPINGMESSAGES" description="PLG_CONTENT_K2_TWITTERTWEET_PARAMPINGMESSAGESDESC">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </param>
+        <param type="spacer"  />
+        <param name="oauth_enabled" type="radio" default="0" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_ENABLED" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_ENABLED_DESC">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </param>
+        <param type="spacer" default="PLG_CONTENT_K2_TWITTERTWEET_CREATE_APPLICATION"/>
+        <param name="oauth_consumer_key" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_KEY" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_KEY_DESC"/>
+        <param name="oauth_consumer_secret" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_SECRET" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_SECRET_DESC"/>
+        <param name="oauth_user_key" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_KEY" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_KEY_DESC"/>
+        <param name="oauth_user_secret" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_SECRET" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_SECRET_DESC"/>
+    </params>
+    <!-- Standard plugin parameters for Joomla! 1.6+ -->
+    <config>
+        <fields name="params">
+            <fieldset name="settings" label="PLG_CONTENT_K2_TWITTERTWEET_SETTINGS">
+                <field name="section_id" type="text"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_PARAMSECTID" description="PLG_CONTENT_K2_TWITTERTWEET_PARAMSECTIDDESC"/>
+                <field name="username" type="text"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_USERNAME" description="PLG_CONTENT_K2_TWITTERTWEET_USERNAME_DESC"/>
+                <field name="password" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_PASSWORD" description="PLG_CONTENT_K2_TWITTERTWEET_PASSWORD_DESC"/>
+                <field name="metahash" type="radio" default="1" label="PLG_CONTENT_K2_TWITTERTWEET_METAHASH" description="PLG_CONTENT_K2_TWITTERTWEET_METAHASH_DESC">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="default_hash" type="text"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_DEFAULTHASH" description="PLG_CONTENT_K2_TWITTERTWEET_DEFAULTHASH_DESC"/>
+                <field name="items_newer_than" type="calendar" label="PLG_CONTENT_K2_TWITTERTWEET_POST_ITEMSNEWER" description="PLG_CONTENT_K2_TWITTERTWEET_POST_ITEMSNEWER_DESC" format="%Y-%m-%d" />
+                <field name="post_on_save" type="radio" default="0" label="PLG_CONTENT_K2_TWITTERTWEET_POSTONSAVE" description="PLG_CONTENT_K2_TWITTERTWEET_POSTONSAVE_DESC">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+            </fieldset>
+            <fieldset name="oauth" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTHSETTINGS">
+                <field name="oauth_enabled" type="radio" default="0" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_ENABLED" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_ENABLED_DESC">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </field>
+                <field name="myspacer" type="spacer" label="PLG_CONTENT_K2_TWITTERTWEET_CREATE_APPLICATION" class="test" />
+                <field name="oauth_consumer_key" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_KEY" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_KEY_DESC"/>
+                <field name="oauth_consumer_secret" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_SECRET" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_CONSUMER_SECRET_DESC"/>
+                <field name="oauth_user_key" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_KEY" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_KEY_DESC"/>
+                <field name="oauth_user_secret" type="password"  default="" label="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_SECRET" description="PLG_CONTENT_K2_TWITTERTWEET_OAUTH_USER_SECRET_DESC"/>
+            </fieldset>
+            <fieldset name="advanced" label="PLG_CONTENT_K2_TWITTERTWEET_ADVSETTINGS">
+                <field name="delay" type="text"  default="15" label="PLG_CONTENT_K2_TWITTERTWEET_DELAY" description="PLG_CONTENT_K2_TWITTERTWEET_DELAY_DESC"/>
+                <field name="pingmessages" type="radio" default="1" label="PLG_CONTENT_K2_TWITTERTWEET_PARAMPINGMESSAGES" description="PLG_CONTENT_K2_TWITTERTWEET_PARAMPINGMESSAGESDESC">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <administration>
+        <languages folder="language">
+           <language tag="en-GB">en-GB.plg_k2_twittertweet.ini</language>
+           <language tag="sv-SE">sv-SE.plg_k2_twittertweet.ini</language>
+           <language tag="en-GB">en-GB.plg_k2_twittertweet.sys.ini</language>
+           <language tag="sv-SE">sv-SE.plg_k2_twittertweet.sys.ini</language>
+        </languages>
+    </administration>
+</install>
